@@ -1,2 +1,2 @@
-# Dice-Bot
-D1 is ScytedTV Studios' official dice rolling Discord Bot.
+# Toolkit+
+Toolkit+ is ScytedTV Studios' official multi-purpose Discord Bot. Documentation will be released as necessary.
