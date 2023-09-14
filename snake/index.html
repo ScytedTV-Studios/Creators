@@ -286,7 +286,7 @@
             restartButton.addEventListener('click', restartGame);
 
             // Event listener for mobile control button clicks
-            mobileControls.addEventListener('click', handleMobileControlClick);
+            mobileControls.addEventListener('touchstart', handleMobileControlClick);
 
             // Check if the device is a mobile device
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
