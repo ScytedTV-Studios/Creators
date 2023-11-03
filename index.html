@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Coming Soon</title>
+    <title>ScytedTV Creators</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            margin: 0;
+            margin: 10;
             padding: 0;
             background-color: #FFEA00;
             display: flex;
@@ -15,7 +16,7 @@
             color: #000;
         }
 
-        .logo {
+        .container {
             text-align: center;
         }
 
@@ -28,16 +29,58 @@
             margin-top: 20px;
             font-weight: bold;
         }
+
+        .styled-calendar-container {
+            width: 100%;
+            border: none;
+            margin-top: 0;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .logo img {
+                width: 80px;
+                margin: 0 auto;
+            }
+
+            .text {
+                font-size: 25px;
+                margin: 10px auto;
+            }
+
+            .styled-calendar-container {
+                margin-top: auto;
+                flex-grow: 1;
+            }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="logo">
-        <img src="logo.png" alt="Logo">
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
         <div class="text">
             Coming Soon to ScytedTV!
         </div>
     </div>
+
     <script src="https://scytedtvstudios.statuspage.io/embed/script.js"></script>
+    
+    <iframe src="https://embed.styledcalendar.com/#DwUrXySoByCq19VZi9Tm" title="Styled Calendar"
+        class="styled-calendar-container" data-cy="calendar-embed-iframe"></iframe>
+    <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
 </body>
 </html>
