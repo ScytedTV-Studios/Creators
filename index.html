@@ -29,12 +29,33 @@
             font-size: 24px;
             margin-top: 20px;
             font-weight: bold;
+            font-family: "Rubik", Arial, sans-serif;
         }
 
         .styled-calendar-container {
             width: 100%;
             border: none;
             margin-top: 0;
+        }
+
+        .calendar-buttons {
+            margin-top: 20px;
+        }
+
+        .calendar-button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #000;
+            color: #FFF;
+            border: none;
+            border-radius: 5px;
+            font-family: "Rubik", Arial, sans-serif;
+        }
+
+        .selected {
+            background-color: #444;
+            pointer-events: none;
         }
 
         /* Mobile-specific styles */
@@ -64,7 +85,6 @@
                 margin-top: auto;
                 flex-grow: 1;
             }
-
         }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
@@ -78,14 +98,62 @@
         <div class="text">
             Coming Soon to ScytedTV!
         </div>
+        <div class="calendar-buttons">
+            <button class="calendar-button selected" id="videos">Videos</button>
+            <button class="calendar-button" id="shorts">Shorts</button>
+            <button class="calendar-button" id="streams">Streams</button>
+        </div>
     </div>
 
-    <script src="https://scytedtvstudios.statuspage.io/embed/script.js"></script>
-
-    <iframe src="https://embed.styledcalendar.com/#DwUrXySoByCq19VZi9Tm" title="Styled Calendar"
+    <iframe id="calendar-iframe" src="https://embed.styledcalendar.com/#DwUrXySoByCq19VZi9Tm" title="Styled Calendar"
         class="styled-calendar-container" data-cy="calendar-embed-iframe"></iframe>
     <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
 
+    <script>
+        const videosButton = document.getElementById('videos');
+        const shortsButton = document.getElementById('shorts');
+        const streamsButton = document.getElementById('streams');
+        const calendarIframe = document.getElementById('calendar-iframe');
+
+        videosButton.addEventListener('click', () => {
+            if (!videosButton.classList.contains('selected')) {
+                calendarIframe.src = 'about:blank';
+                setTimeout(() => {
+                    calendarIframe.src = 'https://embed.styledcalendar.com/#DwUrXySoByCq19VZi9Tm';
+                }, 100);
+
+                videosButton.classList.add('selected');
+                shortsButton.classList.remove('selected');
+                streamsButton.classList.remove('selected');
+            }
+        });
+
+        shortsButton.addEventListener('click', () => {
+            if (!shortsButton.classList.contains('selected')) {
+                calendarIframe.src = 'about:blank';
+                setTimeout(() => {
+                    calendarIframe.src = 'https://embed.styledcalendar.com/#rnc2OVGEXOkEzGzThM4v';
+                }, 100);
+
+                videosButton.classList.remove('selected');
+                shortsButton.classList.add('selected');
+                streamsButton.classList.remove('selected');
+            }
+        });
+
+        streamsButton.addEventListener('click', () => {
+            if (!streamsButton.classList.contains('selected')) {
+                calendarIframe.src = 'about:blank';
+                setTimeout(() => {
+                    calendarIframe.src = 'https://embed.styledcalendar.com/#PL6iwlgeOxAUOiBYzWuO';
+                }, 100);
+
+                videosButton.classList.remove('selected');
+                shortsButton.classList.remove('selected');
+                streamsButton.classList.add('selected');
+            }
+        });
+    </script>
 </body>
 
 </html>
